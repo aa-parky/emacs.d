@@ -34,3 +34,12 @@
    :config
    (ivy-mode)
   )
+
+;; # counsel
+(use-package counsel
+  :ensure t
+  :after ivy
+  :config
+  (counsel-mode)
+  ;;(global-set-key (kbd "M-<tab>") 'counsel-switch-buffer)
+  )
