@@ -20,3 +20,17 @@
   :config
   (which-key-mode)
  )
+
+;; # ivy
+(use-package ivy
+  :defer 0.1
+  :ensure t
+  :diminish
+  :bind (("C-c C-r" . ivy-resume)
+	 ("C-x B" . ivy-switch-buffer-other-window))
+  :custom
+  (ivy-count-format "(%d/%d) ")
+  (ivy-use-virtual-buffers t)
+   :config
+   (ivy-mode)
+  )
