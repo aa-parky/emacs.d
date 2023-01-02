@@ -20,3 +20,16 @@
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
 (display-time)
+
+;; # doom themes & doom-modeline
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t
+	doom-themes-enable-italic t)
+  )
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  )

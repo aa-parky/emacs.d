@@ -67,3 +67,9 @@
         ("<tab>". tab-indent-or-complete)
         ("TAB". tab-indent-or-complete))
   )
+
+;; for Cargo.toml and other config files
+
+(use-package toml-mode
+  :ensure t
+  )
