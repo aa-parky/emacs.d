@@ -21,6 +21,16 @@
 (setq display-time-24hr-format t)
 (display-time)
 
+;; ace-window and jump
+(use-package ace-window
+  :ensure t
+  :config
+  (global-set-key (kbd "M-o") 'ace-window)
+  (custom-set-faces
+   '(aw-leading-char-face
+     ((t (:inherit ace-jump-face-background :height 4.0)))))
+  )
+
 ;; # doom themes & doom-modeline
 (use-package doom-themes
   :ensure t

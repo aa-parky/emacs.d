@@ -13,3 +13,10 @@
 (use-package multi-vterm
   :ensure t
   )
+
+;; which key
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode)
+ )

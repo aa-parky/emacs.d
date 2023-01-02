@@ -66,10 +66,40 @@
   (:map company-mode-map
         ("<tab>". tab-indent-or-complete)
         ("TAB". tab-indent-or-complete))
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
   )
+  
 
 ;; for Cargo.toml and other config files
 
 (use-package toml-mode
   :ensure t
+  )
+
+(use-package exec-path-from-shell
+  :ensure t
+  :init (exec-path-from-shell-initialize)
+  )
+
+(when (executable-find "lldb-mi")
+  (use-package dap-mode
+    :ensure t
+    :config
+    (dap-ui-mode)
+    (dap-ui-controls-mode 1)
+
+    (require 'dap-lldb)
+    (require 'dap-gdb-lldb)
+    ;; installs .extension/vscode
+    (dap-gdb-lldb-setup)
+    (dap-register-debug-template
+     "Rust::LLDB Run Configuration"
+     (list :type "lldb"
+           :request "launch"
+           :name "LLDB::Run"
+	   :gdbpath "rust-lldb"
+           ;; uncomment if lldb-mi is not in PATH
+           ;; :lldbmipath "path/to/lldb-mi"
+           )))
   )
