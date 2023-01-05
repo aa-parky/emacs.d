@@ -21,6 +21,12 @@
   (which-key-mode)
  )
 
+(use-package ace-jump-mode
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+  )
+
 ;; # ivy
 (use-package ivy
   :defer 0.1
@@ -33,6 +39,13 @@
   (ivy-use-virtual-buffers t)
    :config
    (ivy-mode)
+   )
+
+;; # swiper
+(use-package swiper
+  :ensure t
+  :after ivy
+  :bind ("C-s" . swiper)
   )
 
 ;; # counsel
@@ -42,4 +55,18 @@
   :config
   (counsel-mode)
   ;;(global-set-key (kbd "M-<tab>") 'counsel-switch-buffer)
+  )
+
+(use-package counsel-osx-app
+  :ensure t
+  :bind* ("C-c o" . counsel-osx-app)
+  :commands counsel-osx-app
+  :config
+  (setq counsel-osx-app-location
+        (list "/Applications"
+              "/Applications/Misc"
+              "/Applications/Utilities"
+              (expand-file-name "~/Applications")
+;;              (expand-file-name "~/.nix-profile/Applications")
+              "/Applications/Xcode.app/Contents/Applications"))
   )
