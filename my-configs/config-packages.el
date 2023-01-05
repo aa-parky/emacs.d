@@ -21,6 +21,25 @@
   (which-key-mode)
  )
 
+;; evil mode
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-undo-system 'undo-fu)
+  :config
+  (evil-mode 1)
+  (evil-set-initial-state 'vterm-mode 'emacs)
+  (evil-set-initial-state 'dired-mode 'emacs)
+  )
+
+(use-package undo-fu
+  :ensure t
+  :config
+  (global-unset-key (kbd "C-z"))
+  (global-set-key (kbd "C-z") 'undo-fu-only-undo)
+  (global-set-key (kbd "C-u") 'undo-fu-only-redo)
+  )
+
 (use-package ace-jump-mode
   :ensure t
   :config
