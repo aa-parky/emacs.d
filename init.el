@@ -39,3 +39,7 @@
 ;; ui  packages
 (when (file-exists-p (expand-file-name "~/.emacs.d/my-configs/config-ui.el" user-emacs-directory))
   (load-file (expand-file-name "~/.emacs.d/my-configs/config-ui.el" user-emacs-directory)))
+
+;; ssh
+(when (file-exists-p (expand-file-name "~/.emacs.d/my-configs/config-ssh.el" user-emacs-directory))
+  (load-file (expand-file-name "~/.emacs.d/my-configs/config-ssh.el" user-emacs-directory)))

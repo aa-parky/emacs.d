@@ -89,3 +89,10 @@
 ;;              (expand-file-name "~/.nix-profile/Applications")
               "/Applications/Xcode.app/Contents/Applications"))
   )
+
+(use-package denote
+  :ensure t
+  :config
+  (setq config-denote "~/.emacs.d/my-configs/config-denote.el")
+  (load config-denote)
+  )
