@@ -86,7 +86,6 @@
               "/Applications/Misc"
               "/Applications/Utilities"
               (expand-file-name "~/Applications")
-;;              (expand-file-name "~/.nix-profile/Applications")
               "/Applications/Xcode.app/Contents/Applications"))
   )
 
@@ -95,4 +94,16 @@
   :config
   (setq config-denote "~/.emacs.d/my-configs/config-denote.el")
   (load config-denote)
+  )
+
+;; # gemini mode
+(use-package gemini-mode
+  :ensure t
+  :config
+  (require 'bind-key)
+  (unbind-key "C-c C-l" gemini-mode-map)
+  (unbind-key "C-c C-o" gemini-mode-map)
+  (unbind-key "C-c RET" gemini-mode-map)
+  (unbind-key "C-c C-t" gemini-mode-map)
+  (unbind-key "C-c C-n" gemini-mode-map)
   )
